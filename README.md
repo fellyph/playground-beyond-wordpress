@@ -2,7 +2,7 @@
 
 A WordPress Playground Blueprint that creates a landing page linking to 26 browser-based CMS, framework, application and library demos.
 
-[Launch the directory in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Ffellyph%2Fplayground-beyond-wordpress%2Fmain%2Fblueprint.json)
+[Launch the directory in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Ffellyph%2Fplayground-beyond-wordpress%2Fmain%2Fblueprint.json) · [View the Blueprint](blueprint.json)
 
 The directory itself runs in WordPress. It links to independent projects that reuse Playground’s PHP.wasm packages, build on Playground, cite it as inspiration, or use related PHP runtimes. Each entry opens its demo or source code in a new tab.
 
@@ -29,8 +29,6 @@ To run locally with Node.js 20.18 or newer:
 ```sh
 npx @wp-playground/cli@latest server --blueprint=blueprint.json
 ```
-
-You can also download [launch.html](launch.html), open it in your browser, and use its launch button.
 
 ## Update the directory
 
