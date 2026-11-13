@@ -2,7 +2,7 @@
 
 A WordPress Playground Blueprint that creates a landing page linking to 26 browser-based CMS, framework, application and library demos.
 
-Download [launch.html](launch.html), open it in your browser, and select **Launch the directory in Playground**.
+[Launch the directory in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Ffellyph%2Fplayground-beyond-wordpress%2Fmain%2Fblueprint.json)
 
 The directory itself runs in WordPress. It links to independent projects that reuse Playground’s PHP.wasm packages, build on Playground, cite it as inspiration, or use related PHP runtimes. Each entry opens its demo or source code in a new tab.
 
@@ -20,7 +20,7 @@ Created by Fellyph Cintra for the CMS Conf session “Your CMS in the Browser.�
 
 ## Run
 
-Open the downloaded launcher and select its launch button. The Blueprint installs a small block theme, creates the landing page, and sets it as the homepage. It bundles the small logos in the theme stylesheet.
+Open the launch link above. The Blueprint installs a small block theme, creates the landing page, and sets it as the homepage. It bundles the small logos in the theme stylesheet.
 
 The initial load needs internet access to download WordPress and the runtime. External demos have their own download, browser and persistence requirements. Some entries open a source repository.
 
@@ -30,7 +30,7 @@ To run locally with Node.js 20.18 or newer:
 npx @wp-playground/cli@latest server --blueprint=blueprint.json
 ```
 
-The launcher embeds the Blueprint in its link, so it works from a downloaded copy of this private repository.
+You can also download [launch.html](launch.html), open it in your browser, and use its launch button.
 
 ## Update the directory
 
@@ -42,28 +42,7 @@ Edit `blueprint.json`:
 
 Keep links and technical claims aligned with [the project sources](docs/projects.md). When adding an entry, identify its runtime relationship and verify its destination in a browser.
 
-After editing the Blueprint, regenerate the embedded link in `launch.html` with the command below. Run it from the repository root.
-
-```sh
-python3 - <<'PYTHON'
-import base64
-import json
-import re
-from pathlib import Path
-
-blueprint = json.loads(Path("blueprint.json").read_text())
-encoded = base64.b64encode(
-    json.dumps(blueprint, separators=(",", ":"), ensure_ascii=False).encode()
-).decode()
-url = "https://playground.wordpress.net/#" + encoded
-launcher = Path("launch.html")
-launcher.write_text(re.sub(
-    r'https://playground\.wordpress\.net/#[^"]+',
-    lambda match: url,
-    launcher.read_text(),
-))
-PYTHON
-```
+The launch link loads `blueprint.json` from the `main` branch. Committed updates appear in fresh Playground launches.
 
 ## Credits and license
 
